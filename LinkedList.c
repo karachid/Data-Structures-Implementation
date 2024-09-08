@@ -35,9 +35,37 @@ void push_back(Node* h, int newVal){
 	h->next->value = newVal;
 }
 
-//O(n)
-void insert(Node* h, int newVal, int x){
-	// TODO	
+/*
+ * insert : It inserts a new item in the list after a given item,
+ * or at the end of the list if the given item does not exist
+ * @h : head of the list
+ * @newVal : new item to insert
+ * @x : the item following which we insert
+ */
+void insert(Node** h, int newVal, int x){
+	Node *head = h, *newNode, *p;
+	newNode = malloc(sizeof(struct Node));
+	newNode->value = newVal;
+
+	if(h == NULL){
+		newNode->next  = NULL;
+		h = newNode;
+		return;
+	}	
+
+	while(h && h->value != x){
+		p = h;
+		h = h->next;
+	}
+
+	if(h){
+		newNode->next = h->next;
+		h->next = newNode;
+	}
+	else {
+		p->next = newNode;
+		newNode->next = NULL;	
+	}
 }
 
 void displayList(Node* h){
