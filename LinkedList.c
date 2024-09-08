@@ -42,16 +42,10 @@ void push_back(Node* h, int newVal){
  * @newVal : new item to insert
  * @x : the item following which we insert
  */
-void insert(Node** h, int newVal, int x){
+void insert(Node* h, int newVal, int x){
 	Node *head = h, *newNode, *p;
 	newNode = malloc(sizeof(struct Node));
 	newNode->value = newVal;
-
-	if(h == NULL){
-		newNode->next  = NULL;
-		h = newNode;
-		return;
-	}	
 
 	while(h && h->value != x){
 		p = h;
@@ -66,6 +60,33 @@ void insert(Node** h, int newVal, int x){
 		p->next = newNode;
 		newNode->next = NULL;	
 	}
+}
+
+/*
+ * front : It returns the first value in a list
+ * @h : head of the list
+ * Return: integer that represents the first value in the list
+ */
+int front(Node* h){
+	if(h != NULL)
+		return h->value;
+
+	return EXIT_FAILURE; 	
+}
+
+/*
+ * back : It returns the last value in the list
+ * @h : head of the list
+ * Return: integer that represents that last value in the list
+ */
+int back(Node* h){
+	if(h != NULL){
+		while(h->next != NULL){
+			h = h->next;
+		}
+		return h->value;
+	}
+	return EXIT_FAILURE;
 }
 
 void displayList(Node* h){
