@@ -23,6 +23,7 @@ void push_front(Node** h, int newVal){
 }
 
 // 1 + 1 + n ==> O(n)
+// Linear function
 void push_back(Node* h, int newVal){
 
 	//O(n)
