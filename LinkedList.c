@@ -13,7 +13,7 @@ Node* createList(int size){
 	}
 	return h;
 }
-
+// comment by fatimazahra
 //O(1)
 void push_front(Node** h, int newVal){
 	Node* newNode = malloc(sizeof(struct Node));
